@@ -1,0 +1,54 @@
+# Streamlit Community Cloud uses pip, not uv. This mirrors pyproject.toml.
+# When updating: keep in sync with pyproject.toml dependencies.
+
+# Core
+pydantic>=2.7
+pydantic-settings>=2.3
+python-dotenv>=1.0
+pyyaml>=6.0
+typer>=0.12
+rich>=13.7
+
+# Data
+polars>=1.0
+pyarrow>=16.0
+duckdb>=1.0
+numpy>=1.26
+pandas>=2.2
+yfinance>=0.2.40
+requests>=2.32
+httpx>=0.27
+beautifulsoup4>=4.12
+lxml>=5.2
+
+# ML / stats
+scikit-learn>=1.5
+scipy>=1.13
+statsmodels>=0.14
+lightgbm>=4.3
+numba>=0.60
+
+# Agents
+anthropic>=0.40
+
+# Web
+fastapi>=0.115
+uvicorn[standard]>=0.30
+
+# Observability
+structlog>=24.1
+prometheus-client>=0.20
+
+# Plotting
+matplotlib>=3.9
+jinja2>=3.1
+
+# Frontend
+streamlit>=1.39
+plotly>=5.24
+networkx>=3.3
+
+# Editable install of the local package so `import blackorca` works on Cloud.
+# Streamlit Cloud auto-installs the project if pyproject.toml is present, but we
+# add this explicit path for safety with the `setuptools`-style requirements file.
+-e .

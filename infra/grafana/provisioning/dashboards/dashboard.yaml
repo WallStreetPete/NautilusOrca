@@ -1,0 +1,7 @@
+apiVersion: 1
+providers:
+  - name: blackorca
+    folder: BlackOrca
+    type: file
+    options:
+      path: /var/lib/grafana/dashboards

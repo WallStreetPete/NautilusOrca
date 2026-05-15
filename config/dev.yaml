@@ -1,0 +1,8 @@
+profile: dev
+
+logging:
+  level: DEBUG
+  json: false
+
+risk:
+  max_daily_loss_pct: 0.05    # looser in dev

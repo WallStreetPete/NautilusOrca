@@ -1,0 +1,72 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "graphTooltip": 0,
+  "panels": [
+    {
+      "title": "NAV (USD)",
+      "type": "stat",
+      "datasource": "Prometheus",
+      "targets": [{"expr": "blackorca_nav_usd"}],
+      "gridPos": {"x": 0, "y": 0, "w": 6, "h": 4}
+    },
+    {
+      "title": "Daily PnL",
+      "type": "timeseries",
+      "datasource": "Prometheus",
+      "targets": [{"expr": "blackorca_pnl_usd"}],
+      "gridPos": {"x": 6, "y": 0, "w": 18, "h": 6}
+    },
+    {
+      "title": "Gross vs Net exposure",
+      "type": "timeseries",
+      "datasource": "Prometheus",
+      "targets": [
+        {"expr": "blackorca_gross_exposure_usd", "legendFormat": "gross — {{strategy}}"},
+        {"expr": "blackorca_net_exposure_usd",   "legendFormat": "net — {{strategy}}"}
+      ],
+      "gridPos": {"x": 0, "y": 6, "w": 12, "h": 8}
+    },
+    {
+      "title": "Orders / Fills / Rejections",
+      "type": "timeseries",
+      "datasource": "Prometheus",
+      "targets": [
+        {"expr": "rate(blackorca_orders_submitted_total[1m])", "legendFormat": "submitted"},
+        {"expr": "rate(blackorca_fills_total[1m])",            "legendFormat": "filled"},
+        {"expr": "rate(blackorca_orders_rejected_total[1m])",  "legendFormat": "rejected"}
+      ],
+      "gridPos": {"x": 12, "y": 6, "w": 12, "h": 8}
+    },
+    {
+      "title": "Agent cost (USD, cumulative)",
+      "type": "stat",
+      "datasource": "Prometheus",
+      "targets": [{"expr": "sum(blackorca_agent_cost_usd_total)"}],
+      "gridPos": {"x": 0, "y": 14, "w": 6, "h": 4}
+    },
+    {
+      "title": "Data fetch latency p95",
+      "type": "timeseries",
+      "datasource": "Prometheus",
+      "targets": [{"expr": "histogram_quantile(0.95, rate(blackorca_data_fetch_latency_seconds_bucket[5m]))"}],
+      "gridPos": {"x": 6, "y": 14, "w": 18, "h": 6}
+    },
+    {
+      "title": "PIT violations",
+      "type": "timeseries",
+      "datasource": "Prometheus",
+      "targets": [{"expr": "blackorca_pit_violations_total"}],
+      "gridPos": {"x": 0, "y": 20, "w": 24, "h": 6}
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 38,
+  "tags": ["blackorca"],
+  "templating": {"list": []},
+  "time": {"from": "now-6h", "to": "now"},
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Black Orca — Overview",
+  "version": 1
+}

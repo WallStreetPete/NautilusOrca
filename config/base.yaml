@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------------
+# Default configuration. Overridden by config/<profile>.yaml and env vars.
+# Resolution order: base.yaml -> <profile>.yaml -> env vars (BLACKORCA_*)
+# ---------------------------------------------------------------------------
+
+profile: dev
+
+catalog:
+  path: data/catalog
+  default_calendar: NYSE
+  default_timezone: America/New_York
+
+logging:
+  level: INFO
+  json: true
+
+metrics:
+  enabled: true
+  port: 9100
+
+risk:
+  max_position_pct: 0.05         # max single name as fraction of NAV
+  max_gross_pct: 1.50            # gross exposure cap
+  max_net_pct: 1.00              # net exposure cap
+  max_sector_pct: 0.30
+  max_daily_loss_pct: 0.02
+  max_drawdown_pct: 0.10
+  per_order_max_notional: 250000
+
+backtest:
+  default_capital: 1_000_000
+  slippage_bps: 2.0
+  commission_per_share: 0.005
+  min_commission: 1.00
+  borrow_bps_annual: 50.0
+
+agents:
+  default_model: claude-opus-4-7
+  fast_model: claude-sonnet-4-6
+  max_tokens: 4096
+  temperature: 0.2
+  max_research_budget_usd: 5.00

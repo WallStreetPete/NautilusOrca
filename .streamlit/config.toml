@@ -1,0 +1,18 @@
+[server]
+headless = true
+runOnSave = false
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "dark"
+primaryColor = "#7dd3fc"
+backgroundColor = "#0b0e14"
+secondaryBackgroundColor = "#14181f"
+textColor = "#e6edf3"
+font = "sans serif"
+
+[logger]
+level = "info"

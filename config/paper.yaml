@@ -1,0 +1,12 @@
+profile: paper
+
+logging:
+  level: INFO
+  json: true
+
+risk:
+  max_position_pct: 0.04
+  max_gross_pct: 1.20
+  max_net_pct: 0.80
+  max_daily_loss_pct: 0.015
+  max_drawdown_pct: 0.07

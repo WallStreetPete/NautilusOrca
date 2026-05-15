@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "functions": {
+    "src/app/api/hypothesis/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}
